@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    background-color: black;
+    
+}
+
+
+#start-btn {
+    background-color: darkgoldenrod;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    
+}
+
+
+#game-box {
+background-color: antiquewhite;
+width: 600px;
+height: 400px;
+position: relative;
+overflow: hidden;
+user-select: none;
+background-image: url("../imagenes/fondo.jpg");
+background-position: center;
+background-size: cover;
+}
+
+
+#game-box {
+    pointer-events: none;
+}
+
+
+#game-screen, #game-over-screen{
+    display: none;
+}
