@@ -5,7 +5,7 @@ class Marciano{
         this.node=document.createElement("img")
         this.node.id="marciano"
 
-        this.node.src="./imagenes/marciano.png"
+        this.node.src="./imagenes/Vp3M.gif"
 
         gameBoxNode.append(this.node)
 

@@ -11,6 +11,8 @@ const startBtnNode = document.querySelector("#start-btn")
 const gameBoxNode = document.querySelector("#game-box")
 
 let game; 
+//let manoloY=290;
+//let manoloH=70;
 
 //* FUNCIONES
 function startGame(){
@@ -54,6 +56,21 @@ game.iniciarFrecuenciaDeAsteroide()
 startBtnNode.addEventListener("click", startGame)
 
 gameBoxNode.addEventListener("click", ()=>{
-    game.manolo.jumpEffect()
+console.log("pene");
+    game.manolo.saltaYa()
     
 })
+
+/*window.addEventListener("keydown", saltaYa)
+
+    //console.log("hola");
+   /* if(event.code==="ArrowUp"){
+        console.log("mover hacia arriba");
+       this.y += this.jumpSpeed;
+        this.node.style.top=`${this.y}px`
+    }else if(event.code==="ArrowDown"){
+        console.log("mover abajo");
+        this.y -=this.jumpSpeed;
+        this.node.style.top=`${this.y}px`
+    }*/
+    

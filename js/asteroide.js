@@ -1,16 +1,16 @@
 class Asteroide{
-    constructor(type,){
+    constructor(type,posX){
         this.node = document.createElement("img")
         this.node.id = "asteroide"
 
-        this.node.src="./imagenes/asteroide1.png"
+        this.node.src="./imagenes/XOsa.gif"
 
         gameBoxNode.append(this.node)
 
 
 
         this.x=500;
-        this.y=280;
+        this.y=posX;
         this.w=100;
         this.h=100;
 

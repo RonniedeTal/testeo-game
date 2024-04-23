@@ -69,7 +69,8 @@ this.asteroideUnoArr=[
     }
 //------------------------------------------------------------
 asteroide1Aparece(){
-  let nuevoAsteroide = new Asteroide()
+  let randomPosX=Math.floor(Math.random()*400)
+  let nuevoAsteroide = new Asteroide("prueba", randomPosX)
   this.asteroideUnoArr.push(nuevoAsteroide)
 }
 

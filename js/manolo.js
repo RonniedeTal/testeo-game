@@ -33,12 +33,25 @@ if((this.y+this.h)<gameBoxNode.offsetHeight){
 }
 }
 //jumpEffect
-jumpEffect(){
+/*jumpEffect(){
     if(this.y >0){
         this.y -=this.jumpSpeed
         this.node.style.top=`${this.y}px`
     }
-}
+}*/
+saltaYa(){
+        console.log("hola");
+    
+            this.y -=this.jumpSpeed
+            this.node.style.top=`${this.y}px`
+        
+        
+       
+   }
 
 
 }
+/*if(this.y <0){
+    this.y +=this.jumpSpeed
+    this.node.style.top=`${this.y}px`
+}*/
