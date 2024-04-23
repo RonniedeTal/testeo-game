@@ -32,7 +32,10 @@ gameScreenNode.style.display="flex"
 game = new Game();
 console.log(game);
 game.start()
-
+game.iniciarFrecuenciaDeMarciano()
+/*game.iniciarFrecuenciaDeRoca()*/
+game.iniciarFrecuenciaDeRoca()
+game.iniciarFrecuenciaDeAsteroide()
 }
 
 
@@ -49,3 +52,8 @@ game.start()
 
 //EVENTOS
 startBtnNode.addEventListener("click", startGame)
+
+gameBoxNode.addEventListener("click", ()=>{
+    game.manolo.jumpEffect()
+    
+})

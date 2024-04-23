@@ -1,6 +1,7 @@
 body{
     margin: 0;
-    background-color: black;
+    background-color: rgb(38, 34, 34);
+   
     
 }
 
@@ -38,7 +39,7 @@ background-size: cover;
 }
 
 
-#game-box {
+#game-box *{
     pointer-events: none;
 }
 

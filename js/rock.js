@@ -1,17 +1,16 @@
-class Asteroide{
-    constructor(type,){
+class Rock{
+    constructor(){
         this.node = document.createElement("img")
-        this.node.id = "asteroide"
+        this.node.id= "roca"
 
-        this.node.src="./imagenes/asteroide1.png"
+        this.node.src="./imagenes/piedra.png"
 
         gameBoxNode.append(this.node)
 
 
-
         this.x=500;
-        this.y=280;
-        this.w=100;
+        this.y=340;
+        this.w=60;
         this.h=100;
 
         this.node.style.position="absolute";
@@ -19,12 +18,12 @@ class Asteroide{
         this.node.style.left=`${this.x}px`;
         this.node.style.width=`${this.w}px`;
         this.node.style.height=`${this.h}px`;
-
-        this.asteroide1Speed=4;
         
+        this.rockSpeed=3;
+
     }
-    asteroide1MovementEffect(){
-        this.x -= this.asteroide1Speed;
+    rockMovementEffect(){
+        this.x -=this.rockSpeed;
         this.node.style.left=`${this.x}px`;
     }
 }
