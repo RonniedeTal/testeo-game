@@ -34,10 +34,13 @@ gameScreenNode.style.display="flex"
 game = new Game();
 console.log(game);
 game.start()
+
 game.iniciarFrecuenciaDeMarciano()
 /*game.iniciarFrecuenciaDeRoca()*/
 game.iniciarFrecuenciaDeRoca()
 game.iniciarFrecuenciaDeAsteroide()
+game.iniciarFrecuenciaSkull()
+game.iniciarFrecuenciadeAlien()
 }
 
 
@@ -55,11 +58,11 @@ game.iniciarFrecuenciaDeAsteroide()
 //EVENTOS
 startBtnNode.addEventListener("click", startGame)
 
-gameBoxNode.addEventListener("click", ()=>{
-console.log("pene");
+/*gameBoxNode.addEventListener("click", ()=>{
+console.log("hello");
     game.manolo.saltaYa()
     
-})
+})*/
 
 /*window.addEventListener("keydown", saltaYa)
 
@@ -73,4 +76,6 @@ console.log("pene");
         this.y -=this.jumpSpeed;
         this.node.style.top=`${this.y}px`
     }*/
-    
+    window.addEventListener("keydown", (event)=>{
+        game.manolo.saltaYa(event)
+    })

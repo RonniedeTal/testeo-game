@@ -1,29 +1,31 @@
-class Rock{
-    constructor(){
-        this.node = document.createElement("img")
-        this.node.id= "roca"
+class Skull{
+    constructor(type, posX){
+        this.node=document.createElement("img")
+        this.node.id="skull"
 
-        this.node.src="./imagenes/piedra.png"
+        this.node.src ="./imagenes/skull.gif"
 
         gameBoxNode.append(this.node)
 
 
+
         this.x=500;
-        this.y=450;
-        this.w=60;
-        this.h=100;
+        this.y=posX;
+        this.w=70;
+        this.h=70;
 
         this.node.style.position="absolute";
         this.node.style.top=`${this.y}px`;
         this.node.style.left=`${this.x}px`;
         this.node.style.width=`${this.w}px`;
         this.node.style.height=`${this.h}px`;
-        
-        this.rockSpeed=3;
+
+        this.skullSpeed=2;
+
 
     }
-    rockMovementEffect(){
-        this.x -=this.rockSpeed;
+    skullMovementEffect(){
+        this.x-=this.skullSpeed;
         this.node.style.left=`${this.x}px`;
     }
 }

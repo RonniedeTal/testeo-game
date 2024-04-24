@@ -1,5 +1,5 @@
 class Marciano{
-    constructor(){
+    constructor(type, posY){
 
 
         this.node=document.createElement("img")
@@ -11,7 +11,7 @@ class Marciano{
 
 
         this.x=500;
-        this.y=150;
+        this.y=posY;
         this.w=100;
         this.h=100;
 

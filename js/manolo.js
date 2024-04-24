@@ -21,13 +21,14 @@ this.node.style.left=`${this.x}px`
 this.node.style.width=`${this.w}px`
 this.node.style.height=`${this.h}px`
 
-this.gravitySpeed=0.9;
-this.jumpSpeed=100;
+this.gravitySpeed=1;
+this.jumpSpeed=40;
     }
 
 //gravity
 gravityEffect(){
-if((this.y+this.h)<gameBoxNode.offsetHeight){
+    if((this.y+this.h)<gameBoxNode.offsetHeight){
+//if((this.y+this.h)<gameBoxNode.offsetHeight){
     this.y+=this.gravitySpeed
     this.node.style.top=`${this.y}px`
 }
@@ -39,7 +40,7 @@ if((this.y+this.h)<gameBoxNode.offsetHeight){
         this.node.style.top=`${this.y}px`
     }
 }*/
-saltaYa(){
+/*saltaYa(){
         console.log("hola");
     
             this.y -=this.jumpSpeed
@@ -50,8 +51,19 @@ saltaYa(){
    }
 
 
-}
+}*/
 /*if(this.y <0){
     this.y +=this.jumpSpeed
     this.node.style.top=`${this.y}px`
 }*/
+
+saltaYa(event){
+    if(event.code === "ArrowUp"){
+        this.y -=this.jumpSpeed
+            this.node.style.top=`${this.y}px`
+    }else if(event.code==="ArrowDown"){
+        this.y += this.jumpSpeed;
+        this.node.style.top=`${this.y}px`
+    }
+}
+}

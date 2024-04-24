@@ -11,8 +11,8 @@ class Asteroide{
 
         this.x=500;
         this.y=posX;
-        this.w=100;
-        this.h=100;
+        this.w=70;
+        this.h=70;
 
         this.node.style.position="absolute";
         this.node.style.top=`${this.y}px`;

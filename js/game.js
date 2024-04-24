@@ -6,7 +6,7 @@ class Game {
     this.manolo = new Manolo();
     
     this.marcianoArr=[
-      new Marciano()
+      //new Marciano()//solo si quiero al inicio
     ]
 
 
@@ -23,11 +23,26 @@ this.rocaArr=[
 this.asteroideUnoArr=[
   new Asteroide()
 ]
-   /* this.rockArr=[
-      new Rock()
-    ]*/
-    
+   
+
+this.skullArr=[
+  new Skull()
+]
+
+
+this.alienArr=[
+
+]
+  
+
+    //---------------------intervalos------------------
     this.gameIntervalId;
+    this.asteroideIntervalId;
+    this.skullIntervalId;
+    this.marcianoIntervalId;
+    this.alienIntervalId;
+
+
   }
 
  /* rockAparece(){
@@ -42,16 +57,18 @@ this.asteroideUnoArr=[
   }*/
 //------------------------------------------------------------
     marcianoAparece(){
-      //let randomMarciano=Math.floor(Math.random()*50) no me deja sacarlo random
-      let nuevoMarciano= new Marciano()
+      let randomMarcianoPosY=Math.floor(Math.random()*400) //no me deja sacarlo random
+      let nuevoMarciano= new Marciano("prueba",randomMarcianoPosY)
       this.marcianoArr.push(nuevoMarciano)
     }
 
     iniciarFrecuenciaDeMarciano(){
-      setInterval(()=>{
+     // setTimeout(()=>{
+      this.marcianoIntervalId=setInterval(()=>{
         this.marcianoAparece()
+        console.log("aparece");
 
-      },20000)
+      },15000)
     }
 
 
@@ -65,7 +82,7 @@ this.asteroideUnoArr=[
     iniciarFrecuenciaDeRoca(){
       setInterval(()=>{
         this.rocaAparece()
-      },3000)
+      },5000)
     }
 //------------------------------------------------------------
 asteroide1Aparece(){
@@ -75,10 +92,121 @@ asteroide1Aparece(){
 }
 
   iniciarFrecuenciaDeAsteroide(){
-    setInterval(()=>{
+    this.asteroideIntervalId=setInterval(()=>{
       this.asteroide1Aparece()
-    },5000)
+    },2000)
   }
+
+//-------------------------------------------
+  skullAparece(){
+    let randomSkullPosX=Math.floor(Math.random()*400)
+    let nuevoSkull= new Skull("prueba", randomSkullPosX)
+    this.skullArr.push(nuevoSkull)
+  }
+  iniciarFrecuenciaSkull(){
+    this.skullIntervalId=setInterval(()=>{
+      this.skullAparece()
+    },4000)
+  }
+
+//--------------------------------------
+alienAparece(){
+  let nuevoAlien=new Alien()
+  this.alienArr.push(nuevoAlien)
+}
+iniciarFrecuenciadeAlien(){
+  this.alienIntervalId=setInterval(()=>{
+    this.alienAparece()
+  },20000)
+}
+
+
+//------------colision foreach------------------
+
+
+  colisionManoloAsteroide(){
+    this.asteroideUnoArr.forEach((cadaasteroideuno)=>{
+      //this.manolo
+      if (
+        this.manolo.x < cadaasteroideuno.x + cadaasteroideuno.w &&
+        this.manolo.x + this.manolo.w > cadaasteroideuno.x &&
+        this.manolo.y < cadaasteroideuno.y + cadaasteroideuno.h &&
+        this.manolo.y + this.manolo.h > cadaasteroideuno.y
+      ) {
+        // Collision detected!--------------
+        console.log("manolo pum");
+        //invocar GameOver---------------
+        this.gameOver()
+      } 
+    })
+  }
+
+//--------------------------------------------------------------
+colisionManoloSkull(){
+this.skullArr.forEach((cadaSkull)=>{
+  if (
+    this.manolo.x < cadaSkull.x + cadaSkull.w &&
+    this.manolo.x + this.manolo.w > cadaSkull.x &&
+    this.manolo.y < cadaSkull.y + cadaSkull.h &&
+    this.manolo.y + this.manolo.h > cadaSkull.y
+  ) {
+    // Collision detected!
+    console.log("manolo pam");
+    this.gameOver()
+
+  }
+
+})
+}
+//-----------------------------------------
+colisionManoloMarciano(){
+  this.marcianoArr.forEach((cadaMarciano)=>{
+  if (
+    this.manolo.x < cadaMarciano.x + cadaMarciano.w &&
+    this.manolo.x + this.manolo.w > cadaMarciano.x &&
+    this.manolo.y < cadaMarciano.y + cadaMarciano.h &&
+    this.manolo.y + this.manolo.h > cadaMarciano.y
+  ) {
+    // Collision detected!
+    console.log("manolo pow");
+    this.gameOver()
+  }
+})
+}
+//------------------------------------------------
+
+colisionManoloAlien(){
+
+this.alienArr.forEach((cadaAlien)=>{
+  if (
+    this.manolo.x < cadaAlien.x + cadaAlien.w &&
+    this.manolo.x + this.manolo.w > cadaAlien.x &&
+    this.manolo.y < cadaAlien.y + cadaAlien.h &&
+    this.manolo.y + this.manolo.h > cadaAlien.y
+  ) {
+    // Collision detected!
+    console.log("pau");+
+    this.gameOver()
+  }
+})
+
+}
+
+
+
+//------------------gameOver-----------------------
+
+  gameOver(){
+    clearInterval(this.gameIntervalId)
+    clearInterval(this.asteroideIntervalId)
+    clearInterval(this.skullIntervalId)
+    clearInterval(this.marcianoIntervalId)
+    clearInterval(this.alienIntervalId)
+
+gameScreenNode.style.display="none"
+gameOverScreenNode.style.display="flex"
+
+}
 
 
 
@@ -101,11 +229,27 @@ asteroide1Aparece(){
   cadaasteroideuno.asteroide1MovementEffect()
  })
 
+ this.skullArr.forEach((cadaskull)=>{
+  cadaskull.skullMovementEffect()
+ })
+
+ this.alienArr.forEach((cadaAlien)=>{
+cadaAlien.alienMovementEffect()
+ })
+ //--------------------colisiones------------
+  this.colisionManoloAsteroide()
+  this.colisionManoloSkull()
+  this.colisionManoloMarciano()
+  this.colisionManoloAlien()
+
   }
+
+  //-------------------------------------------------
   start() {
     this.gameIntervalId = setInterval(() => {
       //console.log("anda");
       this.gameLoop();
     }, Math.round(1000 / 60));
   }
+  
 }
