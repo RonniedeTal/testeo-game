@@ -22,12 +22,22 @@ class Marciano{
         this.node.style.height=`${this.h}px`
 
         this.marcianoSpeed=7;
-
+        this.efectosPlayedMarciano=false;
+        
+        }
+        playEfectoMarciano(){
+            if(!this.efectosPlayedMarciano){
+                let efectMar= new Audio("sound/kirby-conchetumadre.mp3");
+                efectMar.volume=0.5;
+                efectMar.play();
+                this.efectosPlayedMarciano=true;
+            }
         }
 
         marcianoMovementEffect(){
             this.x-=this.marcianoSpeed
             this.node.style.left=`${this.x}px`
+            this.playEfectoMarciano();
         }
 
 

@@ -1,3 +1,4 @@
+
 class Game {
   //PROPIEDADES =====COSAS Y ELEMENTOS
   constructor() {
@@ -102,6 +103,7 @@ asteroide1Aparece(){
     let randomSkullPosX=Math.floor(Math.random()*400)
     let nuevoSkull= new Skull("prueba", randomSkullPosX)
     this.skullArr.push(nuevoSkull)
+    efectos.play()
   }
   iniciarFrecuenciaSkull(){
     this.skullIntervalId=setInterval(()=>{
@@ -187,6 +189,7 @@ this.alienArr.forEach((cadaAlien)=>{
     // Collision detected!
     console.log("pau");+
     this.gameOver()
+    
   }
 })
 
@@ -206,8 +209,8 @@ this.alienArr.forEach((cadaAlien)=>{
 gameScreenNode.style.display="none"
 gameOverScreenNode.style.display="flex"
 
-}
 
+}
 
 
 
@@ -252,4 +255,13 @@ cadaAlien.alienMovementEffect()
     }, Math.round(1000 / 60));
   }
   
+
+ 
+ 
+  
 }
+ reinicioloquesea.addEventListener("click", ()=>{
+    window.location.reload()
+    //console.log("aaa");
+  })
+  

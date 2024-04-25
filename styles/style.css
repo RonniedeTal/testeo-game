@@ -15,6 +15,15 @@ body{
     border-radius: 10px;
 }
 
+#restart-btn {
+    background-color: darkgoldenrod;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
 
 .container {
     display: flex;

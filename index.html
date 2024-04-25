@@ -10,8 +10,9 @@
     
     <!--PANTALLA DE INICIO-->
     <div id="splash-screen" class="container">
+        <audio id="m" src="sound/04. Maze Fortress 1.mp3"></audio>
         <img src="./imagenes/Manolo Space.gif" width="500" alt="logo">
-        <button id="start-btn">Dale!</button>
+        <button id="start-btn"onclick="document.getElementById('m').play()">ESTART!</button>
     </div>
     <!--PANTALLA DE JUEGO-->
     <div id="game-screen" class="container">
@@ -22,7 +23,9 @@
     </div>
     <!--PANTALLA FINAL-->
     <div id="game-over-screen" class="container">
+        <audio id="o" src="sound/yamete-kudasai_Xb22o4S.mp3"></audio>
         <img src="./imagenes/gameover.gif">
+        <button id="restart-btn"onclick="document.getElementById('o').play()">Restart!</button>
     </div>
 
     <script src="./js/main.js"></script>
@@ -33,5 +36,10 @@
     <script src="./js/rock.js"></script>
     <script src="./js/calavera.js"></script>
     <script src="./js/alien.js"></script>
+    <script src="./js/musica.js"></script>
 </body>
 </html>
+
+
+
+document.getElementById('o').play()
