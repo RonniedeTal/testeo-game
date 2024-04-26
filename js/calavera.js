@@ -9,8 +9,8 @@ class Skull {
 
     this.x = 500;
     this.y = posX;
-    this.w = 50;
-    this.h = 50;
+    this.w = 45;
+    this.h = 45;
 
     this.node.style.position = "absolute";
     this.node.style.top = `${this.y}px`;

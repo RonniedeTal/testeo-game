@@ -9,8 +9,8 @@ class Marciano {
 
     this.x = 500;
     this.y = posY;
-    this.w = 100;
-    this.h = 100;
+    this.w = 80;
+    this.h = 80;
 
     this.node.style.position = "absolute";
     this.node.style.top = `${this.y}px`;
