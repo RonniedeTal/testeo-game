@@ -56,3 +56,10 @@ background-size: cover;
 #game-screen, #game-over-screen{
     display: none;
 }
+
+/*#timer{
+    color:greenyellow;
+    padding:10px;      ----------> timer css
+    font-size: 50px;
+
+}*/

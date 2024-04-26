@@ -1,44 +1,38 @@
-class Marciano{
-    constructor(type, posY){
+class Marciano {
+  constructor(type, posY) {
+    this.node = document.createElement("img");
+    this.node.id = "marciano";
 
+    this.node.src = "./imagenes/Vp3M.gif";
 
-        this.node=document.createElement("img")
-        this.node.id="marciano"
+    gameBoxNode.append(this.node);
 
-        this.node.src="./imagenes/Vp3M.gif"
+    this.x = 500;
+    this.y = posY;
+    this.w = 100;
+    this.h = 100;
 
-        gameBoxNode.append(this.node)
+    this.node.style.position = "absolute";
+    this.node.style.top = `${this.y}px`;
+    this.node.style.left = `${this.x}px`;
+    this.node.style.width = `${this.w}px`;
+    this.node.style.height = `${this.h}px`;
 
+    this.marcianoSpeed = 8;
+    this.efectosPlayedMarciano = false;
+  }
+  playEfectoMarciano() {
+    if (!this.efectosPlayedMarciano) {
+      let efectMar = new Audio("sound/kirby-conchetumadre.mp3");
+      efectMar.volume = 0.5;
+      efectMar.play();
+      this.efectosPlayedMarciano = true;
+    }
+  }
 
-        this.x=500;
-        this.y=posY;
-        this.w=100;
-        this.h=100;
-
-        this.node.style.position="absolute"
-        this.node.style.top=`${this.y}px`
-        this.node.style.left=`${this.x}px`
-        this.node.style.width=`${this.w}px`
-        this.node.style.height=`${this.h}px`
-
-        this.marcianoSpeed=7;
-        this.efectosPlayedMarciano=false;
-        
-        }
-        playEfectoMarciano(){
-            if(!this.efectosPlayedMarciano){
-                let efectMar= new Audio("sound/kirby-conchetumadre.mp3");
-                efectMar.volume=0.5;
-                efectMar.play();
-                this.efectosPlayedMarciano=true;
-            }
-        }
-
-        marcianoMovementEffect(){
-            this.x-=this.marcianoSpeed
-            this.node.style.left=`${this.x}px`
-            this.playEfectoMarciano();
-        }
-
-
+  marcianoMovementEffect() {
+    this.x -= this.marcianoSpeed;
+    this.node.style.left = `${this.x}px`;
+    this.playEfectoMarciano();
+  }
 }
